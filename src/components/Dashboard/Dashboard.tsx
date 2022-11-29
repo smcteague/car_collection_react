@@ -15,7 +15,10 @@ const Header = styled('h1')({
     alignItems: 'center'
 })
 
-const Image = styled('img')
+const Image = styled('img')({
+    height: 'auto',
+    width: '100%'
+})
 
 
 
@@ -28,7 +31,7 @@ export const Dashboard = () => {
                 <Grid container spacing={4} >
                     <Grid item xs={6}>
                         <Card variant="outlined">Car 1
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -38,7 +41,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 2
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -48,7 +51,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 3
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -58,7 +61,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 4
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -68,7 +71,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 5
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -78,7 +81,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 6
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -88,7 +91,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 7
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
@@ -98,7 +101,7 @@ export const Dashboard = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Card variant="outlined">Car 8
-                            <img
+                            <Image
                                 src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
                                 srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                 alt={'item.title'}
