@@ -39,9 +39,9 @@ export const Dashboard = () => {
             <Root>
                 <Header>Dashboard</Header>
                 <Header3>Check out my neat-o car collection!</Header3>
-
                 <Box sx={{ flexGrow: 1 }} >
                     <Grid container spacing={4} >
+                        {/* TODO: display this content in a loop */}
                         <Grid item xs={6}>
                             <Card variant="outlined">Car 1
                                 <Image
