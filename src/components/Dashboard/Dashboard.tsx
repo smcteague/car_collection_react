@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/system';
-import { Box, Grid, } from '@mui/material';
+import { Box, Grid, Card } from '@mui/material';
 
 const Root = styled('div')({
     padding: 0,
@@ -18,23 +18,33 @@ export const Dashboard = () => {
             <h1>Dashboard</h1>
 
             <Box sx={{ flexGrow: 1 }} >
-                {/* Setting up the Fluid Grid system */}
                 <Grid container spacing={4} >
                     <Grid item xs={6}>
-                        <div className='grid-elements'>Car 1</div>
+                        <Card variant="outlined">Car 1</Card>
                     </Grid>
                     <Grid item xs={6}>
-                        <div className='grid-elements'>Car 2</div>
+                        <Card variant="outlined">Car 2</Card>
                     </Grid>
                     <Grid item xs={6}>
-                        <div className='grid-elements'>Car 3</div>
+                        <Card variant="outlined">Car 3</Card>
                     </Grid>
                     <Grid item xs={6}>
-                        <div className='grid-elements'>Car 4</div>
+                        <Card variant="outlined">Car 4</Card>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Card variant="outlined">Car 5</Card>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Card variant="outlined">Car 6</Card>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Card variant="outlined">Car 7</Card>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Card variant="outlined">Car 8</Card>
                     </Grid>
                 </Grid>
             </Box>
-
         </Root>
     )
 }
