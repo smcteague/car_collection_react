@@ -7,7 +7,11 @@ const Root = styled('div')({
     margin: 0
 })
 
-
+const Header = styled('h1')({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+})
 
 
 
@@ -15,7 +19,7 @@ const Root = styled('div')({
 export const Dashboard = () => {
     return (
         <Root>
-            <h1>Dashboard</h1>
+            <Header>Dashboard</Header>
 
             <Box sx={{ flexGrow: 1 }} >
                 <Grid container spacing={4} >
