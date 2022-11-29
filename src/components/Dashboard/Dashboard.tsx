@@ -1,131 +1,173 @@
-import React from 'react';
-import { styled } from '@mui/system';
-import { Box, Grid, Card } from '@mui/material';
+import React, { useState } from 'react';
+import { Drawer as MUIDrawer,
+    ListItem,
+    List,
+    ListItemText,
+    AppBar,
+    Toolbar,
+    IconButton,
+    Typography,
+    Divider,
+    Button,
+    CssBaseline,
+    Box
+ } from '@mui/material'
+ import MenuIcon from '@mui/icons-material/Menu';
+ import { ChevronRight, ChevronLeft } from '@mui/icons-material';
+ import { useNavigate } from 'react-router-dom';
+ import { theme } from '../../Theme/themes';
 
-import car_image_placeholder from '../../assets/images/undraw_by_my_car_re_j3jt.svg'
-
-const Page = styled('body')({
-    margin: '12px',
-    padding: '0'
-})
-
-const Root = styled('div')({
-    padding: 0,
-    margin: 0
-})
-
-const Header = styled('h1')({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-})
-
-const Header3 = styled('h3')({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-})
-
-const Image = styled('img')({
-    height: 'auto',
-    width: '100%'
-})
+ import { Album } from '../Album';
 
 
+ const drawerWidth = 240;
 
-export const Dashboard = () => {
+ const myStyles = {
+    appBar: {
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+        }),
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    hide: {
+        display: 'none',
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerHeader: {
+        display: 'flex',
+        width: drawerWidth,
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        marginLeft: 0,
+    },
+    contentShift: {
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+    },
+    toolbar: {
+        display: 'flex',
+    },
+    toolbar_button: {
+        marginLeft: 'auto',
+        backgroundColor: theme.palette.primary.contrastText,
+    },
+ };
+
+ export const Dashboard = () => {
+    const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+
+    const itemsList = [
+        {
+            text: 'Home',
+            onClick: () => navigate('/')
+        },
+        {
+            text: 'Sign Up',
+            onClick: () => navigate('/signup')
+        },
+        {
+            text: 'Sign In',
+            onClick: () => navigate('/signin')
+        },
+        {
+            text: 'Profile',
+            onClick: () => navigate('/profile')
+        },
+        {
+            text: 'Logout',
+            onClick: () => navigate('/logout')
+        },
+    ]
+
     return (
-        <Page>
-            <Root>
-                <Header>Dashboard</Header>
-                <Header3>Check out my neat-o car collection!</Header3>
-                <Box sx={{ flexGrow: 1 }} >
-                    <Grid container spacing={4} >
-                        {/* TODO: display this content in a loop */}
-                        <Grid item xs={6}>
-                            <Card variant="outlined">Car 1
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 2
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 3
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 4
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 5
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 6
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 7
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Card variant="outlined">Car 8
-                                <Image
-                                    src={`${car_image_placeholder}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${car_image_placeholder}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={'item.title'}
-                                    loading="lazy"
-                                />                        
-                            </Card>
-                        </Grid>
-                    </Grid>
+        <Box sx = {{ display: 'flex' }}>
+            <CssBaseline />
+            <AppBar
+                sx = {open ? myStyles.appBarShift : myStyles.appBar}
+                position = 'fixed'
+            >
+                <Toolbar sx = {myStyles.toolbar}>
+                    <IconButton 
+                        color = 'inherit'
+                        aria-label = 'open drawer'
+                        onClick = {handleDrawerOpen}
+                        edge = 'start'
+                        sx = {open ? myStyles.hide : myStyles.menuButton}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant='h6' noWrap>Dashboard</Typography>
+                    <Button sx = {myStyles.toolbar_button}>Create New Car</Button>
+                </Toolbar>
+            </AppBar>
+            <MUIDrawer
+                sx = {open ? myStyles.drawer : myStyles.hide}
+                variant = 'persistent'
+                anchor = 'left'
+                open = {open}
+                style = {{ width: drawerWidth }}
+            >
+                <Box
+                    sx = {myStyles.drawerHeader}>
+                    <IconButton onClick={handleDrawerClose}>
+                        {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
+                    </IconButton>
                 </Box>
-            </Root>
-        </Page>
+                <Divider />
+                <List>
+                    {itemsList.map((item, index) => {
+                        const {text, onClick} = item;
+                        return (
+                            <ListItem button key={text} onClick={onClick}>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        );
+                    })}
+                </List>
+            </MUIDrawer>
+            <Box sx = {myStyles.content}>
+                <Box sx = {myStyles.drawerHeader} />
+                <Album />
+            </Box>
+        </Box>
     )
-}
-
+};

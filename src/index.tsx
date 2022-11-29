@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Dashboard, SignIn, SignUp, Logout } from './components';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './Theme/themes';
+import { Home, Dashboard, SignIn, Profile, SignUp, Logout } from './components';
 
 
 
@@ -15,17 +17,18 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home title={'Car Collection'}/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/signin' element={<SignIn/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/logout' element={<Logout/>}/>
-      </Routes>
-    </Router>
-
-
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home title={'Car Collection'}/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/logout' element={<Logout/>}/>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

@@ -88,6 +88,9 @@ export const Home = (props: Props) => {
                         <NavA to="/signin">Sign In</NavA>
                     </li>
                     <li>
+                        <NavA to="/profile">Profile</NavA>
+                    </li>
+                    <li>
                         <NavA to="/signup">Sign Up</NavA>
                     </li>
                     <li>
