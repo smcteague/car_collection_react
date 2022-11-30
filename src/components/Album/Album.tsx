@@ -80,7 +80,7 @@ export const Album = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size='small'>View Details</Button>
+                                        <Button size='small'>View</Button>
                                         <Button size='small'>Edit</Button>
                                         <Button size='small'>Delete</Button>
                                     </CardActions>
