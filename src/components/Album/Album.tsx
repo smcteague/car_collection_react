@@ -51,7 +51,7 @@ export const Album = () => {
                             spacing = {2}
                             justifyContent = 'center'
                         >
-                            <Button variant='contained'>Add New Car</Button>
+                            <Button variant='contained'>Create New Car</Button>
                         </Stack>
                     </Container>
                 </Box>

@@ -136,7 +136,6 @@ import { Drawer as MUIDrawer,
                         <MenuIcon />
                     </IconButton>
                     <Typography variant='h6' noWrap>Dashboard</Typography>
-                    <Button sx = {myStyles.toolbar_button}>Create New Car</Button>
                 </Toolbar>
             </AppBar>
             <MUIDrawer
