@@ -23,36 +23,21 @@ import { useGetData } from '../../custom-hooks';
 import { CarForm } from '../CarForm/CarForm'
 
 
-const cards = [0, 1, 2, 3, 4];
-
 const theme = createTheme();
 
 export const Album = () => {
     let {carData, getData} = useGetData();
     let [open, setOpen] = useState(false);
 
+    const [dialogOpen, setDialogOpen] = useState(false);
 
-    
-    // let carDataCapture = () => {
-    //     let carDataList = [];
-    //     for (let i = 0; i < carData.length; i++) {
-    //         carDataList[i] = carData[i]
-    //     }
-    //     return carDataList
-    // } 
-    
-    // console.log(carData[0]['model']);
+    const handleDialogClickOpen = () => {
+        setDialogOpen(true);
+    };
 
-
-    // {carData[card]['year']}
-    // {carData[card]['make']}
-    // {carData[card]['model']}
-    // {carData[card]['color']}
-    // {carData[card]['mileage']}
-    // {carData[card]['price']}
-
-    // {carData[card]['id']}
-
+    const handleDialogClickClose = () => {
+        setDialogOpen(false);
+    };
     
     let handleOpen = () => {
         setOpen(true)
@@ -96,6 +81,19 @@ export const Album = () => {
                             spacing = {2}
                             justifyContent = 'center'
                         >
+
+                        <Dialog open={dialogOpen} onClose={handleDialogClickClose} aria-labelledby='form-dialog-title'>
+                        <DialogTitle id='form-dialog-title'>Add New Car</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>Add a New Car</DialogContentText>
+                            <CarForm />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleDialogClickClose} color='primary'>Cancel</Button>
+                        </DialogActions>
+                        </Dialog>
+
+
                             <Button variant='contained'>Create New Car</Button>
                         </Stack>
                     </Container>
@@ -134,8 +132,8 @@ export const Album = () => {
                                     <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
                                         <DialogTitle id='form-dialog-title'>Update a Car</DialogTitle>
                                         <DialogContent>
-                                            <DialogContentText>Car id: </DialogContentText>
-                                            <CarForm id='' />
+                                            <DialogContentText>Car id: {car.id}</DialogContentText>
+                                            <CarForm id={car.id} />
                                         </DialogContent>
                                         <DialogActions>
                                             <Button onClick={handleClose} color='primary'>Cancel</Button>
