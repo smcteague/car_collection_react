@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Drawer as MUIDrawer,
+import { 
+    Drawer as MUIDrawer,
     ListItem,
     List,
     ListItemText,
@@ -10,12 +11,18 @@ import { Drawer as MUIDrawer,
     Divider,
     Button,
     CssBaseline,
-    Box
+    Box,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle
  } from '@mui/material'
  import MenuIcon from '@mui/icons-material/Menu';
  import { ChevronRight, ChevronLeft } from '@mui/icons-material';
  import { useNavigate } from 'react-router-dom';
  import { theme } from '../../Theme/themes';
+ import { CarForm } from '../CarForm/CarForm';
 
  import { Album } from '../Album';
 
@@ -85,7 +92,9 @@ import { Drawer as MUIDrawer,
 
  export const Dashboard = () => {
     const navigate = useNavigate();
+
     const [open, setOpen] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -93,6 +102,14 @@ import { Drawer as MUIDrawer,
 
     const handleDrawerClose = () => {
         setOpen(false);
+    };
+
+    const handleDialogClickOpen = () => {
+        setDialogOpen(true);
+    };
+
+    const handleDialogClickClose = () => {
+        setDialogOpen(false)
     };
 
     const itemsList = [

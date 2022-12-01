@@ -1,26 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button,
     Card,
     CardActions,
     CardContent,
-    CardMedia,
     CssBaseline,
     Grid,
     Stack,
     Box,
     Typography,
     Container,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle
  }  from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { serverCalls } from '../../api';
+import { useGetData } from '../../custom-hooks';
+import { CarForm } from '../CarForm/CarForm'
 
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [0, 1, 2, 3, 4];
 
 const theme = createTheme();
 
 export const Album = () => {
+    let {carData, getData} = useGetData();
+    let [open, setOpen] = useState(false);
+
+
+    
+    // let carDataCapture = () => {
+    //     let carDataList = [];
+    //     for (let i = 0; i < carData.length; i++) {
+    //         carDataList[i] = carData[i]
+    //     }
+    //     return carDataList
+    // } 
+    
+    console.log(carData[0]['model']);
+
+
+
+    
+    let handleOpen = () => {
+        setOpen(true)
+    }
+
+    let handleClose = () => {
+        setOpen(false)
+    }
+
+    let deleteData = () => {
+        // serverCalls.delete(`${}`)
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -62,28 +99,41 @@ export const Album = () => {
                                 <Card 
                                     sx = {{ height: '100%', display: 'flex', flexDirection: 'column' }}
                                 >
-                                    <CardMedia 
-                                        component = 'img'
-                                        sx = {{
-                                            pt: '56.25%',
-                                        }}
-                                        image = 'https://images.unsplash.com/photo-1523828446771-151afb8374f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1227&q=80'
-                                        alt = 'classic-car'           
-                                    />
                                     <CardContent sx={{ flexGrow: 1 }}>
                                         <Typography gutterBottom variant='h5' component='h2'>
-                                            Car Model
+                                            {/* Car Model */}
+                                            {carData[card]['year']}
                                         </Typography>
                                         <Typography>
-                                            Car Make
-                                            Car Year
+                                            {carData[card]['make']}
+                                        </Typography>
+                                        <Typography>
+                                            {carData[card]['model']}
+                                        </Typography>
+                                        <Typography>
+                                            {carData[card]['color']}
+                                        </Typography>
+                                        <Typography>
+                                            {carData[card]['mileage']}
+                                        </Typography>
+                                        <Typography>
+                                            {carData[card]['price']}
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size='small'>View</Button>
-                                        <Button size='small'>Edit</Button>
-                                        <Button size='small'>Delete</Button>
+                                        <Button onClick={handleOpen} size='small'>Update</Button>
+                                        <Button onClick={deleteData} size='small'>Delete</Button>
                                     </CardActions>
+                                    <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
+                                        <DialogTitle id='form-dialog-title'>Update a Car</DialogTitle>
+                                        <DialogContent>
+                                            <DialogContentText>Car id: {carData[card]['id']}</DialogContentText>
+                                            <CarForm id={carData[card]['id']} />
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <Button onClick={handleClose} color='primary'>Cancel</Button>
+                                        </DialogActions>
+                                    </Dialog>
                                 </Card>
                             </Grid>
                        ))}
