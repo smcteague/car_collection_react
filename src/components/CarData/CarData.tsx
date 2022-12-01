@@ -82,6 +82,7 @@ export const Album = () => {
                             justifyContent = 'center'
                         >
 
+                        <Button variant='contained' onClick={handleDialogClickOpen}>Add New Car</Button>
                         <Dialog open={dialogOpen} onClose={handleDialogClickClose} aria-labelledby='form-dialog-title'>
                         <DialogTitle id='form-dialog-title'>Add New Car</DialogTitle>
                         <DialogContent>
@@ -93,8 +94,6 @@ export const Album = () => {
                         </DialogActions>
                         </Dialog>
 
-
-                            <Button variant='contained'>Create New Car</Button>
                         </Stack>
                     </Container>
                 </Box>
