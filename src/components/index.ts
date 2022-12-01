@@ -4,4 +4,4 @@ export * from './SignIn';
 export * from './Profile';
 export * from './SignUp';
 export * from './Logout';
-export * from './Album';
+export * from './CarData';

@@ -24,7 +24,7 @@ import {
  import { theme } from '../../Theme/themes';
  import { CarForm } from '../CarForm/CarForm';
 
- import { Album } from '../Album';
+ import { Album } from '../CarData';
 
 
  const drawerWidth = 240;

@@ -102,30 +102,29 @@ export const Album = () => {
                 </Box>
                 <Container sx={{ py: 8 }} maxWidth='md'>
                     <Grid container spacing={4}>
-                        {cards.map((card) => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
+                        {carData.map((car: { id: string, make: string, model: string, year: string, color: string, mileage: number, price: number  }) => (
+                            <Grid item key={car.id} xs={12} sm={6} md={4}>
                                 <Card 
                                     sx = {{ height: '100%', display: 'flex', flexDirection: 'column' }}
                                 >
                                     <CardContent sx={{ flexGrow: 1 }}>
                                         <Typography gutterBottom variant='h5' component='h2'>
-                                            {/* Car Model */}
-
+                                            {car.year}
                                         </Typography>
                                         <Typography>
-
+                                            {car.make}
                                         </Typography>
                                         <Typography>
-
+                                            {car.model}
                                         </Typography>
                                         <Typography>
-
+                                            Color: {car.color}
                                         </Typography>
                                         <Typography>
-
+                                            Mileage: {car.mileage}
                                         </Typography>
                                         <Typography>
-
+                                            Price: {car.price}
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
