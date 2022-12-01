@@ -60,29 +60,29 @@ export const CarForm = (props: CarFormProps) => {
             <form onSubmit = {handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="make">Make</label>
-                    <Input {...register('make')} make='make' placeholder='Make' />
+                    <Input {...register('make')} name='make' placeholder='Make' />
                 </div>
                 <div>
-                    <label htmlFor="model">Make</label>
-                    <Input {...register('model')} make='model' placeholder='Model' />
+                    <label htmlFor="model">Model</label>
+                    <Input {...register('model')} name='model' placeholder='Model' />
                 </div>
                 <div>
-                    <label htmlFor="year">Make</label>
-                    <Input {...register('year')} make='year' placeholder='Year' />
+                    <label htmlFor="year">Year</label>
+                    <Input {...register('year')} name='year' placeholder='Year' />
                 </div>
                 <div>
-                    <label htmlFor="color">Make</label>
-                    <Input {...register('color')} make='color' placeholder='Color' />
+                    <label htmlFor="color">Color</label>
+                    <Input {...register('color')} name='color' placeholder='Color' />
                 </div>
                 <div>
-                    <label htmlFor="mileage">Make</label>
-                    <Input {...register('mileage')} make='mileage' placeholder='Mileage' />
+                    <label htmlFor="mileage">Mileage</label>
+                    <Input {...register('mileage')} name='mileage' placeholder='Mileage' />
                 </div>
                 <div>
-                    <label htmlFor="price">Make</label>
-                    <Input {...register('price')} make='price' placeholder='Price' />
+                    <label htmlFor="price">Price</label>
+                    <Input {...register('price')} name='price' placeholder='Price' />
                 </div>       
-                <Button {...register('series')} name='series' placeholder='Series' />                                         
+                <Button type='submit'>Submit</Button>                                         
             </form>
         </div>
     )

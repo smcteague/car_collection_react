@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { TextField } from '@mui/material';
 
 interface inputType {
-    make: string;
+    name: string;
     placeholder: string;
 }
 

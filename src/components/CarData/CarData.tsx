@@ -21,11 +21,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { serverCalls } from '../../api';
 import { useGetData } from '../../custom-hooks';
 import { CarForm } from '../CarForm/CarForm'
+import { AnyAction } from '@reduxjs/toolkit';
 
 
 const theme = createTheme();
 
-export const Album = () => {
+interface CarFormProps {
+    id?: string;
+    data?: {};
+}
+
+export const Album = (props: CarFormProps) => {
     let {carData, getData} = useGetData();
     let [open, setOpen] = useState(false);
 
@@ -47,8 +53,9 @@ export const Album = () => {
         setOpen(false)
     }
 
-    let deleteData = () => {
-        // serverCalls.delete(`${}`)
+    let deleteData = async (carId: any) => {       
+        await serverCalls.delete(`${carId}`)
+        serverCalls.get()
     }
 
     return (
@@ -77,7 +84,7 @@ export const Album = () => {
                         </Typography>
                         <Stack
                             sx = {{ pt: 4 }}
-                            direction = 'row'
+                            direction = {{sm:'column', md:'row'}}
                             spacing = {2}
                             justifyContent = 'center'
                         >
@@ -126,7 +133,7 @@ export const Album = () => {
                                     </CardContent>
                                     <CardActions>
                                         <Button onClick={handleOpen} size='small'>Update</Button>
-                                        <Button onClick={deleteData} size='small'>Delete</Button>
+                                        <Button onClick={() => deleteData(car.id)} size='small'>Delete</Button>
                                     </CardActions>
                                     <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
                                         <DialogTitle id='form-dialog-title'>Update a Car</DialogTitle>
