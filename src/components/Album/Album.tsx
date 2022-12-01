@@ -41,9 +41,17 @@ export const Album = () => {
     //     return carDataList
     // } 
     
-    console.log(carData[0]['model']);
+    // console.log(carData[0]['model']);
 
 
+    // {carData[card]['year']}
+    // {carData[card]['make']}
+    // {carData[card]['model']}
+    // {carData[card]['color']}
+    // {carData[card]['mileage']}
+    // {carData[card]['price']}
+
+    // {carData[card]['id']}
 
     
     let handleOpen = () => {
@@ -102,22 +110,22 @@ export const Album = () => {
                                     <CardContent sx={{ flexGrow: 1 }}>
                                         <Typography gutterBottom variant='h5' component='h2'>
                                             {/* Car Model */}
-                                            {carData[card]['year']}
+
                                         </Typography>
                                         <Typography>
-                                            {carData[card]['make']}
+
                                         </Typography>
                                         <Typography>
-                                            {carData[card]['model']}
+
                                         </Typography>
                                         <Typography>
-                                            {carData[card]['color']}
+
                                         </Typography>
                                         <Typography>
-                                            {carData[card]['mileage']}
+
                                         </Typography>
                                         <Typography>
-                                            {carData[card]['price']}
+
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
@@ -127,8 +135,8 @@ export const Album = () => {
                                     <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
                                         <DialogTitle id='form-dialog-title'>Update a Car</DialogTitle>
                                         <DialogContent>
-                                            <DialogContentText>Car id: {carData[card]['id']}</DialogContentText>
-                                            <CarForm id={carData[card]['id']} />
+                                            <DialogContentText>Car id: </DialogContentText>
+                                            <CarForm id='' />
                                         </DialogContent>
                                         <DialogActions>
                                             <Button onClick={handleClose} color='primary'>Cancel</Button>
