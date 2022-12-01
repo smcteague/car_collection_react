@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnyAction } from '@reduxjs/toolkit';
 
 import { Button,
     Card,
@@ -21,17 +22,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { serverCalls } from '../../api';
 import { useGetData } from '../../custom-hooks';
 import { CarForm } from '../CarForm/CarForm'
-import { AnyAction } from '@reduxjs/toolkit';
 
 
 const theme = createTheme();
 
-interface CarFormProps {
-    id?: string;
-    data?: {};
-}
-
-export const Album = (props: CarFormProps) => {
+export const Album = () => {
     let {carData, getData} = useGetData();
     let [open, setOpen] = useState(false);
 
@@ -44,7 +39,7 @@ export const Album = (props: CarFormProps) => {
     const handleDialogClickClose = () => {
         setDialogOpen(false);
     };
-    
+   
     let handleOpen = () => {
         setOpen(true)
     }
@@ -55,7 +50,7 @@ export const Album = (props: CarFormProps) => {
 
     let deleteData = async (carId: any) => {       
         await serverCalls.delete(`${carId}`)
-        serverCalls.get()
+        getData();
     }
 
     return (

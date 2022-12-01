@@ -13,7 +13,6 @@ import {
 } from '../../redux/slices/rootSlice';
 import { Input } from '../sharedComponents/Input';
 import { serverCalls } from '../../api';
-import { useGetData } from '../../custom-hooks';
 
 
 interface CarFormProps {
@@ -32,7 +31,6 @@ interface CarState {
 
 export const CarForm = (props: CarFormProps) => {
     const dispatch = useDispatch();
-    let {carData, getData} = useGetData();
     const store = useStore();
     const {register, handleSubmit} = useForm({});
 
