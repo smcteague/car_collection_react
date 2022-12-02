@@ -18,10 +18,11 @@ import { Button,
     DialogTitle
  }  from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { getAuth } from 'firebase/auth';
 
 import { serverCalls } from '../../api';
 import { useGetData } from '../../custom-hooks';
-import { CarForm } from '../CarForm/CarForm'
+import { CarForm } from '../CarForm/CarForm';
 
 
 const theme = createTheme();
